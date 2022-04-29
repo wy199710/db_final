@@ -1,0 +1,8 @@
+.bodyback{
+    background-image: url('../images/login_hotel.jpg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    overflow: hidden;
+}
