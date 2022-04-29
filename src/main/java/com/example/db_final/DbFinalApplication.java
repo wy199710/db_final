@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DbFinalApplication {
 
     public static void main(String[] args) {
+        System.out.println("hello world!");
         SpringApplication.run(DbFinalApplication.class, args);
     }
 
