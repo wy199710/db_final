@@ -46,7 +46,7 @@ function register() {
                 if(tt.status==200)
                 {
                     alert("Success！");
-                    window.location.href = "http://localhost:5000/index.html";
+                    window.location.href = "http://localhost:5000/mainpage.html";
                 }
 
                 if(tt.status==400)
