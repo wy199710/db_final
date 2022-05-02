@@ -5,25 +5,27 @@
     <title>MainPage</title>
     <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <h1 style="text-align: center">Welcom to Q&A website!</h1>
+    <div style="margin:0 100px;background-color: white;border-radius: 15px">
+    <form style="margin-top: 30px" method="post" action="index.js">
+            <input style="height:50px; border-radius: 15px;font-size:30px" class="form-control" id="password" placeholder="Search for question & answer" value="" type="password">
+    </form>
+    </div>
 </head>
 <body class="bodyback">
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6"></div>
-        <div class="col-md-6">
-            <div class="row" style="position: absolute;top:200px;left:100px;">
-                <div class="col-md-6" style="display:block;width: 600px;height: 450px;background-color: white; border-radius: 15px">
-                    <form style="margin-top: 30px" method="post" action="index.js">
-                        <h1 style="text-align: center">My Profile</h1>
-                        <p ><a style="color: black; font-size: 30px" href="display.html">Search Questions & Answers</a></p>
-                        <p ><a style="color: black; font-size: 30px" href="post.html">My Post</a></p>
-                        <p><a style="color: black; font-size: 30px" href="answer.html">My Answer</a></p>
-                        <p><a style="color: black; font-size: 30px" href="userDetail.html">view/change detail of my profile</p>
-                    </form>
+            <div class="row" style="position: relative;top:100px;left:100px;">
+                <div class="col-md-6" style="display:block;width: 300px;height: 600px;background-color: white; border-radius: 15px">
+                    <ul>
+                        <li><a style="display:block;width:100px;font-size: 20px" href="post.html">My Post</a></li>
+                        <li><a style="display:block;width:100px;font-size: 20px" href="answer.html">My Answer</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6" style="display:block;width: 600px;height: 600px;background-color: white; border-radius: 15px">
+                    <h1 style="text-align: center">My Profile</h1>
+                    <p><a style="color: black; font-size: 30px" href="userDetail.html">view/change detail of my profile</p>
                 </div>
             </div>
-        </div>
-    </div>
 </div>
 
 <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
