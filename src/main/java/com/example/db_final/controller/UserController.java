@@ -50,8 +50,7 @@ public class UserController {
             jsondata.put("status", 404);
             return jsondata;
         }
-
-        User user = userMapper.selectUserById((String)session.getAttribute("user"));
+        User user = userMapper.selectUserByUserName((String)session.getAttribute("user"));
         if(user == null)
         {
             jsondata.put("status", 404);

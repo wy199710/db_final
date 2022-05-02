@@ -8,8 +8,8 @@ public class Answer {
     private Integer uid;
     private Integer pid;
     private Integer tid;
-    private String a_content;
     private Date a_date;
-    private Integer thumbup;
+    private String a_content;
+    private Integer thumb_up;
     private Boolean best_answer;
 }

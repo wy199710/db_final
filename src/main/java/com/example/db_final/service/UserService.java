@@ -14,7 +14,7 @@ public class UserService {
     private UserMapper userMapper;
 
     public int login(User user) {
-        temp = userMapper.selectUserById(user.getUsername());
+        temp = userMapper.selectUserByUserName(user.getUsername());
         if(temp != null) {
             if(temp.getPassword().equals(user.getPassword())) {
                 return 200;
@@ -25,7 +25,7 @@ public class UserService {
     }
 
     public int register(User user) {
-        if(userMapper.selectUserById(user.getUsername()) != null)
+        if(userMapper.selectUserByUserName(user.getUsername()) != null)
             return 400;
         else {
             userMapper.insertUser(user);
