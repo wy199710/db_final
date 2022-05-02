@@ -1,8 +1,6 @@
 package com.example.db_final.service;
 
-import com.example.db_final.mapper.PostMapper;
 import com.example.db_final.mapper.UserMapper;
-import com.example.db_final.model.Post;
 import com.example.db_final.model.User;
 import org.springframework.stereotype.Service;
 

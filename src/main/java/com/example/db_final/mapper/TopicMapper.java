@@ -1,7 +1,6 @@
 package com.example.db_final.mapper;
 
 import com.example.db_final.model.Topic;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import java.util.ArrayList;
