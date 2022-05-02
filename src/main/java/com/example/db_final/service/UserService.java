@@ -5,6 +5,7 @@ import com.example.db_final.model.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 
 @Service
 public class UserService {
@@ -12,6 +13,18 @@ public class UserService {
 
     @Resource
     private UserMapper userMapper;
+
+    public User selectUserById(int uid){
+        return userMapper.selectUserById(uid);
+    }
+
+    public ArrayList<User> selectAllUsers() {
+        return userMapper.selectAllUsers();
+    }
+
+    public User selectUserByUserName(String username) {
+        return userMapper.selectUserByUserName(username);
+    }
 
     public int login(User user) {
         temp = userMapper.selectUserByUserName(user.getUsername());

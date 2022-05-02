@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>MainPage</title>
     <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/index.css">
-    <h1 style="text-align: center;color: white">Welcom to Q&A website!</h1>
+    <h1 style="text-align: center;color: white">Welcome to Q&A website!</h1>
     <div style="margin:0 100px;background-color: white;border-radius: 15px">
     <form style="margin-top: 30px" method="post" action="index.js">
             <input style="height:50px; border-radius: 15px;font-size:30px" class="form-control" id="search" placeholder="Search for question & answer" value="" type="search">
@@ -22,14 +23,16 @@
                     </ul>
                 </div>
                 <div class="col-md-10" style="display:block;width: 70%;height:600px;background-color: white; border-radius: 15px">
-                    <h1 style="text-align: center">My Profile</h1>
-                    <p style="font-size: 20px">Hello!</p>
-                    <p style="font-size: 20px">My email: </p>
+                    <h1 style="text-align: center" th:object="${user}">My Profile</h1>
+                    <p th:text="#{user.email}" style="font-size: 20px">Hello!</p>
+                    <p th:text="#{user.username}" style="font-size: 20px">My email: </p>
+                    <p >Original Price: <span th:text="#{user.username}" style="color: blue"></span></p>
                     <p style="font-size: 20px">My address: </p>
                     <p style="font-size: 20px">My current points: </p>
                     <p style="font-size: 20px">My current level: </p>
                     <p style="padding:15px;length:200px;position: center">
-                        <input class="btn btn-primary btn-lg btn-block" value="Edit detail of my profile" onclick="edit(); type="button"></p>
+                    <p><a  style="background-color: blue; color: white; padding: 14px 25px;text-align: center;  display: inline-block;"
+                           href="/getUserInfo">Edit detail of my profile</a></p>
                 </div>
             </div>
 </div>
