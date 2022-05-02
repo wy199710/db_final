@@ -12,9 +12,10 @@ public class User {
     private String username;
     private String password;
     private String email;
-    private String profile;
-    private String level;
     private String city;
     private String state;
     private String country;
+    private String profile;
+    private String level;
+    private int point;
 }
