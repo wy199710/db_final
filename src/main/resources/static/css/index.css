@@ -6,3 +6,18 @@
     background-attachment: fixed;
     overflow: hidden;
 }
+.bodyback1{
+    background-image: url('../images/bg1.jpg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+.body {
+    padding-bottom: 20px;
+}
+.navbar {
+    margin-bottom: 20px;
+}
+
