@@ -11,15 +11,24 @@
     <div class="row">
         <div class="col-md-6"></div>
         <div class="col-md-6">
-            <div class="row" style="position: absolute;top:200px;left:100px;">
-                <div class="col-md-6" style="display:block;width: 500px;height: 450px;background-color: white; border-radius: 15px">
+            <div class="row" style="position: absolute;top:100px;left:100px;">
+                <div class="col-md-6" style="display:block;width: 500px;height: 770px;background-color: white; border-radius: 15px">
                     <form style="margin-top: 30px" method="post" action="index.js">
                         <h1 style="text-align: center">New User Registration</h1>
-                        <div style="padding:15px;font-size: 20px"><p>Username:
-                            <input style="height:40px;border-radius: 5px" class="form-control" id="username" placeholder="Please enter username..." value="" type="text"></p></div>
-                        <div style="padding:15px;font-size: 20px"><p>Password:
-                            <input style="height:40px;border-radius: 5px" class="form-control" id="password" placeholder="Please enter password..." value="" type="password"></p></div>
-                        <p style="margin-top: 20px;padding:15px;"><input class="btn btn-primary btn-lg btn-block" value="Register" onclick="register();" type="button"></p>
+                        <div style="font-size: 20px"><p>Username:
+                            <input style="height:40px;border-radius: 5px" class="form-control" id="username" placeholder="Please enter username..." value="" type="text"  required="required"></p></div>
+                        <div style="font-size: 20px"><p>Password:
+                            <input style="height:40px;border-radius: 5px" class="form-control" id="password" placeholder="Please enter password..." value="" type="password"  required="required"></p></div>
+                        <div style="font-size: 20px"><p>Email:
+                            <input style="height:40px;border-radius: 5px" class="form-control" id="email" placeholder="Please enter email..." value="" type="email"></p></div>
+                        <div style="font-size: 20px"><p>City:
+                            <input style="height:40px;border-radius: 5px" class="form-control" id="city" placeholder="Please enter city..." value="" type="text"></p></div>
+                        <div style="font-size: 20px"><p>State:
+                            <input style="height:40px;border-radius: 5px" class="form-control" id="state" placeholder="Please enter state..." value="" type="text"></p></div>
+                        <div style="font-size: 20px"><p>Country:
+                            <input style="height:40px;border-radius: 5px" class="form-control" id="country" placeholder="Please enter country..." value="" type="text"></p></div>
+                        <div style="font-size: 20px"><p>Profile:
+                            <input style="height:40px;border-radius: 5px" class="form-control" id="profile" placeholder="Please enter your personal introduction..." value="" type="text"></p></div><p style="margin-top: 20px;padding:15px;"><input class="btn btn-primary btn-lg btn-block" value="Register" onclick="register();" type="button"></p>
                         <p><a  style="color: black; font-size: 15px; float: right" href="index.html">Already have account? Click here to login</a></p>
                     </form>
                 </div>

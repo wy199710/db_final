@@ -10,7 +10,7 @@ public interface AnswerMapper {
     @Select("select * from Answer where a_id = #{a_id}")
     Answer selectAnswerById(@Param("a_id")int a_id);
 
-    @Select("select * from Answer")
+    @Select("select * from Answer order by a_date desc")
     ArrayList<Answer> selectAllAnswer();
 
     @Select("select * from Answer inner join User on User.u_id= Answer.u_id and username = #{username} order by thumb_up desc, a_date desc")
