@@ -31,26 +31,10 @@ public class PostController {
 
     @GetMapping(value = "/post/{id}")
     @ResponseBody
-    public Object getQuestionsById(@PathVariable("id") int id){
+    public Object selectPostById(@PathVariable("id") int id){
         Map<String,Object> jsondata = new HashMap<String,Object>();
         Post post = postService.selectPostById(id);
         jsondata.put("post", post);
         return jsondata;
     }
-
-
-
-
-//    @RequestMapping(value = "/post/user")
-//    public Object getPostByUsername(String username){
-//        Map<ArrayList<Post>,Object> jsondata = new HashMap<ArrayList<Post>,Object>();
-//        ArrayList<Post> posts = postService.selectAllPostByUsername(username);
-//        if(posts == null){
-//            jsondata.put("status", 404);
-//            return jsondata;
-//        }
-//        jsondata.put("status", 200);
-//        jsondata.put("posts", posts);
-//        return jsondata;
-//    }
 }
