@@ -3,7 +3,7 @@ import lombok.Data;
 
 @Data
 public class Topic {
-    private Integer tid;
+    private int t_id;
     private String t_name;
-    private Integer parent_id;
+    private int parent_id;
 }

@@ -36,9 +36,9 @@ public class UserController {
 
     @GetMapping(value = "/user/{id}")
     @ResponseBody
-    public Object selectUserById(@PathVariable ("id")int uid) {
+    public Object selectUserById(@PathVariable ("id")int u_id) {
         Map<String,Object> jsondata = new HashMap<String,Object>();
-        User user= userService.selectUserById(uid);
+        User user= userService.selectUserById(u_id);
         jsondata.put("user", user);
         return jsondata;
     }

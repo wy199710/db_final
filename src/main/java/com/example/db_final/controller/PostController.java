@@ -5,9 +5,8 @@ import com.example.db_final.model.Post;
 import com.example.db_final.model.User;
 import com.example.db_final.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,8 +29,9 @@ public class PostController {
     }
 
 
-    @RequestMapping(value = "/post/{id}")
-    public Object getQuestionsById(int id){
+    @GetMapping(value = "/post/{id}")
+    @ResponseBody
+    public Object getQuestionsById(@PathVariable("id") int id){
         Map<String,Object> jsondata = new HashMap<String,Object>();
         Post post = postService.selectPostById(id);
         jsondata.put("post", post);

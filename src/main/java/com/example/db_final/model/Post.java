@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class Post {
-        private Integer pid;
-        private Integer uid;
-        private Integer tid;
+        private int p_id;
+        private int u_id;
+        private int t_id;
         private String p_title;
         private String p_body;
         private Date p_date;

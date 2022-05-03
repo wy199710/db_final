@@ -15,8 +15,8 @@ public class UserService {
     @Resource
     private UserMapper userMapper;
 
-    public User selectUserById( int uid){
-        return userMapper.selectUserById(uid);
+    public User selectUserById( int u_id){
+        return userMapper.selectUserById(u_id);
     }
 
     public ArrayList<User> selectAllUsers() {

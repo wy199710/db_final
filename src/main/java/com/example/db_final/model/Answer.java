@@ -4,12 +4,12 @@ import lombok.Data;
 
 @Data
 public class Answer {
-    private Integer aid;
-    private Integer uid;
-    private Integer pid;
-    private Integer tid;
+    private int a_id;
+    private int u_id;
+    private int p_id;
+    private int t_id;
     private Date a_date;
     private String a_content;
-    private Integer thumb_up;
+    private int thumb_up;
     private Boolean best_answer;
 }

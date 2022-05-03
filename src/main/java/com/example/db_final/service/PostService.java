@@ -11,8 +11,8 @@ public class PostService {
     @Resource
     private PostMapper postMapper;
 
-    public Post selectPostById(int id){
-        return postMapper.selectPostById(id);
+    public Post selectPostById(int p_id){
+        return postMapper.selectPostById(p_id);
     }
 
     public ArrayList<Post> selectAllPost() {

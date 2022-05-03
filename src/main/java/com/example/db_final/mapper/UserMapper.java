@@ -8,11 +8,11 @@ import org.apache.ibatis.annotations.Select;
 import java.util.ArrayList;
 @Mapper
 public interface UserMapper {
-    @Select("select * from user where uid = #{uid}")
-    User selectUserById(@Param("uid")int uid);
+    @Select("select * from user where u_id = #{u_id}")
+    User selectUserById(@Param("u_id")int u_id);
     @Select({"select * from User where username = #{username}"})
     User selectUserByUserName(String username);
-    @Insert("insert into user(username, password,email,city,state,country,profile) values(#{username}, #{password},#{email},#{city},#{state},#{country},#{profile}))")
+    @Insert("insert into user(username, password,email,city,state,country,profile) values(#{username}, #{password},#{email},#{city},#{state},#{country},#{profile})")
     int insertUser(User user);
 
     @Select({"select * from User"})
