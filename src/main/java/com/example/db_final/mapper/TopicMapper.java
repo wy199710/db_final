@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 @Mapper
 public interface TopicMapper {
-    @Select("select * from Topic where tid = #{id}")
-    Topic selectTopicById(@Param("t_id") int id);
+    @Select("select * from Topic where t_id = #{t_id}")
+    Topic selectTopicById(@Param("t_id") int t_id);
 
     @Select({"select * from Topic"})
     ArrayList<Topic> selectAllTopics();
