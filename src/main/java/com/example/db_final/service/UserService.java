@@ -2,6 +2,7 @@ package com.example.db_final.service;
 
 import com.example.db_final.mapper.UserMapper;
 import com.example.db_final.model.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -14,7 +15,7 @@ public class UserService {
     @Resource
     private UserMapper userMapper;
 
-    public User selectUserById(int uid){
+    public User selectUserById( int uid){
         return userMapper.selectUserById(uid);
     }
 

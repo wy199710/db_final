@@ -11,13 +11,13 @@ public interface PostMapper {
     @Select("select * from Post where pid = #{id}")
     Post selectPostById(int id);
 
-    @Select("select * from Post where status = 0 order by date desc")
+    @Select("select * from Post order by p_date desc")
     ArrayList<Post> selectAllPost();
 
-    @Select("select * from Post inner join User on User.uid = Post.uid and username = #{username} order by date desc")
+    @Select("select * from Post inner join User on User.uid = Post.uid and username = #{username} order by p_date desc")
     ArrayList<Post> selectAllPostByUsername(String username);
 
-    @Select("select * from Post where tid = #{tid} order by date desc")
+    @Select("select * from Post where tid = #{tid} order by p_date desc")
     ArrayList<Post> selectAllPostByTid(int tid);
 
     @Select("select * from Post where uid = #{uid} and tid = #{tid} order by date desc")

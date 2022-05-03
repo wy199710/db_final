@@ -4,11 +4,10 @@ import com.example.db_final.action.UserAction;
 import com.example.db_final.mapper.UserMapper;
 import com.example.db_final.model.User;
 import com.example.db_final.service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +23,26 @@ public class UserController {
 
     @Resource
     private UserMapper userMapper;
+
+    @GetMapping(value = "/user")
+    @ResponseBody
+    public Object selectAllUsers() {
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+        ArrayList<User> users = userService.selectAllUsers();
+        jsondata.put("user", users);
+        return jsondata;
+    }
+
+
+    @GetMapping(value = "/user/{id}")
+    @ResponseBody
+    public Object selectUserById(@PathVariable ("id")int uid) {
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+        User user= userService.selectUserById(uid);
+        jsondata.put("user", user);
+        return jsondata;
+    }
+
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Object login(User user, HttpSession session) {
