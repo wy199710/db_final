@@ -9,20 +9,19 @@
 <body class="bodyback">
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8"></div>
+        <div class="col-md-6"></div>
         <div class="col-md-4">
             <div class="row" style="position: absolute;top:200px;left:100px;">
-                <div class="col-md-2"></div>
-                <div class="col-md-8" style="margin-left:30px; margin-top: 70px;
-                            width: 300px;height: 180px;background-color: white; border-radius: 10px">
-                    <form style="margin-top: 30px" method="post" action="index.js">
-                        <p>Username:<input class="form-control" id="username" placeholder="Please enter username..." value="" type="text"></p>
-                        <p>Password:<input class="form-control" id="password" placeholder="Please enter password..." value="" type="password"></p>
-                        <p style="margin-top: 70px"><input class="btn btn-primary btn-lg btn-block" value="Login" onclick="login();" type="button"></p>
-                        <p><a  style="color: #ffffff; font-size: 15px; float: right" href="./register.html">Register</a></p>
-                    </form>
-                </div>
-                <div class="col-md-2"></div>
+            <div class="col-md-6" style="display:block;width: 500px;height: 450px;background-color: white; border-radius: 15px">
+                <form style="margin-top: 30px" method="post" action="index.js">
+                    <h1 style="text-align: center">User Login</h1>
+                    <div style="padding:15px;font-size: 20px"><p>Username:
+                        <input style="height:40px;border-radius: 5px" class="form-control" id="username" placeholder="Please enter username..." value="" type="text"></p></div>
+                    <div style="padding:15px;font-size: 20px"><p>Password:
+                        <input style="height:40px;border-radius: 5px" class="form-control" id="password" placeholder="Please enter password..." value="" type="password"></p></div>
+                    <p style="margin-top: 20px;padding:15px;"><input class="btn btn-primary btn-lg btn-block" value="Login" onclick="login();" type="button"></p>
+                    <p><a  style="color: black; font-size: 15px; float: right" href="register.html">New User? Click here to register</a></p>
+                </form>
             </div>
         </div>
     </div>

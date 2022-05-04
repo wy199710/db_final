@@ -31,10 +31,19 @@ function login() {
 function register() {
     var username = document.getElementById("username");
     var password = document.getElementById("password");
-
+    var email = document.getElementById("email");
+    var city = document.getElementById("city");
+    var state = document.getElementById("state");
+    var country = document.getElementById("country");
+    var profile = document.getElementById("profile");
     var user = {
         "username":username.value,
-        "password":password.value
+        "password":password.value,
+        "email":email.value,
+        "city":city.value,
+        "state":state.value,
+        "country":country.value,
+        "profile":profile.value
     }
     $.ajax({
             url:'http://localhost:5000/register',
@@ -46,7 +55,7 @@ function register() {
                 if(tt.status==200)
                 {
                     alert("Success！");
-                    window.location.href = "http://localhost:5000/index.html";
+                    window.location.href = "http://localhost:5000/mainpage.html";
                 }
 
                 if(tt.status==400)
