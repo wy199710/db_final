@@ -1,5 +1,4 @@
 package com.example.db_final.model;
-import java.util.Date;
 import lombok.Data;
 
 @Data
@@ -9,6 +8,6 @@ public class Post {
         private int t_id;
         private String p_title;
         private String p_body;
-        private Date p_date;
-        private Boolean status;
+        private String p_date;
+        private String status;
 }

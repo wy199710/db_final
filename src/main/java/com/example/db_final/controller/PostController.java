@@ -27,13 +27,25 @@ public class PostController {
         return jsondata;
     }
 
-
     @GetMapping(value = "/post/{id}")
     @ResponseBody
     public Object selectPostById(@PathVariable("id") int id){
         Map<String,Object> jsondata = new HashMap<String,Object>();
         Post post = postService.selectPostById(id);
         jsondata.put("post", post);
+        return jsondata;
+    }
+
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public Object createPost(Post post) {
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+        int status = postService.create(post);
+
+        if (status == 500) {
+            jsondata.put("status", 500);
+        } else {
+            jsondata.put("status", 200);
+        }
         return jsondata;
     }
 }

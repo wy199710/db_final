@@ -6,6 +6,7 @@ $(document).ready(function() {
         else
         {   console.log(msg.user.username);
             $("#username").html("Hello, " + msg.user.username+"!");
+
             $("#email").html("My email: " + msg.user.email);
             $("#address").html("My address: " + msg.user.city + ", " + msg.user.state + ", " + msg.user.country);
             $("#point").html("My current points: " + msg.user.point);
