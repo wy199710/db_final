@@ -1,6 +1,8 @@
 package com.example.db_final.service;
 
 import com.example.db_final.mapper.UserMapper;
+import com.example.db_final.model.Answer;
+import com.example.db_final.model.Post;
 import com.example.db_final.model.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
@@ -25,6 +27,14 @@ public class UserService {
 
     public User selectUserByUserName(String username) {
         return userMapper.selectUserByUserName(username);
+    }
+
+    public ArrayList<Post> selectAllPostByUsername(String uname) {
+        return userMapper.selectAllPostByUsername(uname);
+    }
+
+    public ArrayList<Answer> selectAllAnswerByUsername(String uname) {
+        return userMapper.selectAllAnswerByUsername(uname);
     }
 
     public int login(User user) {

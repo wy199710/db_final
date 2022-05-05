@@ -2,6 +2,8 @@ package com.example.db_final.controller;
 
 import com.example.db_final.action.UserAction;
 import com.example.db_final.mapper.UserMapper;
+import com.example.db_final.model.Answer;
+import com.example.db_final.model.Post;
 import com.example.db_final.model.User;
 import com.example.db_final.service.UserService;
 import org.apache.ibatis.annotations.Param;
@@ -33,7 +35,6 @@ public class UserController {
         return jsondata;
     }
 
-
     @GetMapping(value = "/user/{id}")
     @ResponseBody
     public Object selectUserById(@PathVariable ("id")int u_id) {
@@ -42,7 +43,6 @@ public class UserController {
         jsondata.put("user", user);
         return jsondata;
     }
-
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Object login(User user, HttpSession session) {
@@ -80,6 +80,36 @@ public class UserController {
         }
         jsondata.put("status", 200);
         jsondata.put("user", user);
+        return jsondata;
+    }
+
+    @RequestMapping(value = "/getuserpost", method = RequestMethod.GET)
+    public Object getUserPost(HttpSession session) {
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+        if(!new UserAction().islogined(session))
+        {
+            jsondata.put("status", 404);
+            return jsondata;
+        }
+        ArrayList<Post> arr = userService.selectAllPostByUsername((String)session.getAttribute("user"));
+
+        jsondata.put("status", 200);
+        jsondata.put("postList", arr);
+        return jsondata;
+    }
+
+    @RequestMapping(value = "/getuseranswer", method = RequestMethod.GET)
+    public Object getUserAnswer(HttpSession session) {
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+        if(!new UserAction().islogined(session))
+        {
+            jsondata.put("status", 404);
+            return jsondata;
+        }
+        ArrayList<Answer> arr = userService.selectAllAnswerByUsername((String)session.getAttribute("user"));
+
+        jsondata.put("status", 200);
+        jsondata.put("postList", arr);
         return jsondata;
     }
 }

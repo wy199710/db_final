@@ -21,6 +21,8 @@ public interface PostMapper {
     @Select("select * from Post where u_id = #{u_id} and t_id = #{t_id} order by p_date desc")
     ArrayList<Post> selectAllPostByByUidAndTid(@Param("p_id")int u_id, @Param("t_id")int t_id);
 
+
+
     @Insert("insert into Post (u_id, t_id, p_title, p_body, p_date, status) values(#{u_id},#{t_id},#{p_title},#{p_body},#{p_date},#{status})")
     int insertPost(@Param("u_id")int u_id, @Param("t_id")int t_id, String p_title, String p_body,String p_date, String status);
 

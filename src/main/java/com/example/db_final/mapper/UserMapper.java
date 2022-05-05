@@ -1,5 +1,7 @@
 package com.example.db_final.mapper;
 
+import com.example.db_final.model.Answer;
+import com.example.db_final.model.Post;
 import com.example.db_final.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -17,4 +19,10 @@ public interface UserMapper {
 
     @Select({"select * from User"})
     ArrayList<User> selectAllUsers();
+
+    @Select("select * from Post natural join User where username = #{username} order by p_date desc")
+    ArrayList<Post> selectAllPostByUsername(String username);
+
+    @Select("select * from Answer natural join User where username = #{username} order by a_date desc")
+    ArrayList<Answer> selectAllAnswerByUsername(String username);
 }

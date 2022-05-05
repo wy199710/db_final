@@ -7,11 +7,11 @@ $(document).ready(function() {
         else
         {
             userid = msg.user.u_id;
-            $.getJSON("http://localhost:5000/getuserpost",function(msg){
+            $.getJSON("http://localhost:5000/getuseranswer",function(msg){
                 if (msg.postList != null) {
                     for (const cur of msg.postList) {
                         $("#list-parent").html((index, cxt) => {
-                            return cxt + '<li class="list-group-item" style="display: flex; justify-content: space-between">\n' + cur.p_title + ' ' + cur.p_body;
+                            return cxt + '<li class="list-group-item" style="display: flex; justify-content: space-between">\n' + cur.a_content + ' ' + cur.p_id;
                         });
                     }
                 }
@@ -20,7 +20,3 @@ $(document).ready(function() {
     });
 
 })
-
-function gocreate() {
-    window.location.href = "http://localhost:5000/createpost.html";
-}
