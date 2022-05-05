@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,12 +19,20 @@
 <div class="container-fluid">
     <div class="row" style="position: relative;top:50px;left:100px;">
         <div  style="display:block;width: 90%;height:600px;background-color: white; border-radius: 15px">
+<<<<<<< Updated upstream
             <h1 style="text-align: center" th:object="${user}">My Profile</h1>
             <p th:text="#{user.email}" style="margin-left:30px;font-size: 25px">Hello!</p>
             <p th:text="#{user.username}" style="margin-left:30px;font-size: 25px">My email: </p>
             <p style="margin-left:30px;font-size: 25px">My address: </p>
             <p style="margin-left:30px;font-size: 25px">My current points: </p>
             <p style="margin-left:30px;font-size: 25px">My current level: </p>
+=======
+            <p style="margin-left:30px;font-size: 25px" id = "username">Hello</p>
+            <p style="margin-left:30px;font-size: 25px" id = "email">My email: </p>
+            <p style="margin-left:30px;font-size: 25px" id = "address">My address: </p>
+            <p style="margin-left:30px;font-size: 25px" id = "point">My current points: </p>
+            <p style="margin-left:30px;font-size: 25px" id = "level">My current level: </p>
+>>>>>>> Stashed changes
             <p style="padding:15px;length:200px;position: center">
             <p><a  style="margin-left:30px;font-size: 25px;background-color: blue; color: white; padding: 14px 25px;text-align: center;  display: inline-block;"
                    href="/getuserinfo">Edit detail of my profile</a></p>
