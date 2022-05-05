@@ -15,7 +15,7 @@ function createpost() {
         "t_id": topic,
         "p_title": title,
         "p_body": description,
-        "p_date": "hi",
+        "p_date": "2022-05-07",
         "status": "0",
     }
     $.ajax({
