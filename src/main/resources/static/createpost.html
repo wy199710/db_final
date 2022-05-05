@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CreatePost</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <div style="background: black;width: 100%;">
+        <ul>
+            <a style="font-size: 25px;color: white;" class="nav-link active" aria-current="page" href="/mainpage.html">Search for Q&A <span class="glyphicon glyphicon-search"></span></a>
+            <a style="font-size: 25px;color: white;padding-left: 30px" class="nav-link" href="/post.html">My Post <span class="glyphicon glyphicon-pencil"></span></a>
+            <a style="font-size: 25px;color: white;padding-left: 30px" class="nav-link" href="/answer.html">My Answer <span class="glyphicon glyphicon-thumbs-up"></span></a>
+            <a style="font-size: 25px;color: white;padding-left: 30px" class="nav-link" href="/profile.html">My Profile <span class="glyphicon glyphicon-home"></span></a>
+        </ul>
+    </div>
+
+<body class="bodyback">
+<div class="container-fluid">
+    <div class="row" style="position: relative;top:50px;left:100px;">
+        <div  style="display:block;width: 90%;height:600px;background-color: white; border-radius: 15px">
+            <form style="margin-top: 30px; padding-top: 30px" method="post" action="index.js">
+                <h1 style="text-align: center">New Post</h1>
+                <div style="margin: auto; width: 500px; padding:15px;font-size: 20px"><p>title:
+                    <input style="height:40px;border-radius: 5px" class="form-control" id="title" placeholder="Please enter title..." value="" type="text"></p></div>
+                <div style="margin: auto; width: 500px; padding:15px;font-size: 20px"><p>description:
+                    <input style="height:40px;border-radius: 5px" class="form-control" id="description" placeholder="Please enter description..." value="" type="text"></p></div>
+                <div style="margin: auto; width: 500px; padding:15px;font-size: 20px">
+                    <p>topic:
+                        <form action="">
+                            <select id="selectTopic" class="btn" style="border:1px solid rgb(255, 83, 77)">
+                                <option value="1"  selected>Computer Science</option>
+                                <option value="2" >Math</option>
+                                <option value="3" >Database</option>
+                                <option value="4" >Algorithm</option>
+                                <option value="5" >Operating System</option>
+                                <option value="6" >Theory</option>
+                                <option value="7" >Applied Math</option>
+                            </select>
+                        </form>
+                    </p>
+                </div>
+
+                <p style="margin: auto; width: 500px; margin-top: 20px;padding:15px;"><input class="btn btn-primary btn-lg btn-block" value="Create" onclick="createpost();" type="button"></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/js/createpost.js"></script>
+</body>
+</html>
