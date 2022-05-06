@@ -10,6 +10,6 @@ public class Answer {
     private int t_id;
     private Date a_date;
     private String a_content;
-    private int thumb_up;
+    private int thumbup;
     private Boolean best_answer;
 }

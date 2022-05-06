@@ -22,4 +22,12 @@ public class AnswerService {
     public ArrayList<Answer> selectAnswerByUsername(String username) {
         return answerMapper.selectAnswerByUsername(username);
     }
+
+    public ArrayList<Answer> selectAllAnswerByPid(int pid) {
+        return answerMapper.selectAllAnswerByPid(pid);
+    }
+
+    public int addLike(int aid) {
+        return answerMapper.updateThumbUp(aid);
+    }
 }

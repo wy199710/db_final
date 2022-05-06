@@ -2,6 +2,7 @@ package com.example.db_final.controller;
 
 import com.example.db_final.mapper.AnswerMapper;
 import com.example.db_final.model.Answer;
+import com.example.db_final.model.User;
 import com.example.db_final.service.AnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +33,24 @@ public class AnswerController {
         Map<String,Object> jsondata = new HashMap<String,Object>();
         Answer answer = answerService.selectAnswerById(id);
         jsondata.put("answer", answer);
+        return jsondata;
+    }
+
+    @GetMapping(value = "/answerbypid/{id}")
+    @ResponseBody
+    public Object selectAllAnswerByPid(@PathVariable("id") int id){
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+        ArrayList<Answer> answer = answerService.selectAllAnswerByPid(id);
+        jsondata.put("answer", answer);
+        return jsondata;
+    }
+
+    @RequestMapping(value = "/addlike", method = RequestMethod.POST)
+    public Object addLike(int a_id) {
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+        int status = answerService.addLike(a_id);
+        if (status == 1) jsondata.put("status", 200);
+        else jsondata.put("status", 200);
         return jsondata;
     }
 }

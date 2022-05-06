@@ -5,17 +5,18 @@ import com.example.db_final.model.Post;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Map;
 
 @Service
 public class PostService {
     @Resource
     private PostMapper postMapper;
 
-    public Post selectPostById(int p_id){
+    public Map<String,Object> selectPostById(int p_id){
         return postMapper.selectPostById(p_id);
     }
 
-    public ArrayList<Post> selectAllPost() {
+    public ArrayList<Map<String,Object>> selectAllPost() {
         return postMapper.selectAllPost();
     }
 

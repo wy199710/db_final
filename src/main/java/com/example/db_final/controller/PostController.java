@@ -25,7 +25,7 @@ public class PostController {
     @RequestMapping(value = "/post")
     public Object selectAllPosts() {
         Map<String,Object> jsondata = new HashMap<String,Object>();
-        ArrayList<Post> posts = postService.selectAllPost();
+        ArrayList<Map<String,Object>> posts = postService.selectAllPost();
         jsondata.put("post", posts);
         return jsondata;
     }
@@ -34,7 +34,7 @@ public class PostController {
     @ResponseBody
     public Object selectPostById(@PathVariable("id") int id){
         Map<String,Object> jsondata = new HashMap<String,Object>();
-        Post post = postService.selectPostById(id);
+        Map<String,Object> post = postService.selectPostById(id);
         jsondata.put("post", post);
         return jsondata;
     }
