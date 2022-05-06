@@ -2,6 +2,8 @@ package com.example.db_final.controller;
 
 import com.example.db_final.action.UserAction;
 import com.example.db_final.mapper.UserMapper;
+import com.example.db_final.model.Answer;
+import com.example.db_final.model.Post;
 import com.example.db_final.model.User;
 import com.example.db_final.service.UserService;
 import org.apache.ibatis.annotations.Param;
@@ -33,7 +35,6 @@ public class UserController {
         return jsondata;
     }
 
-
     @GetMapping(value = "/user/{id}")
     @ResponseBody
     public Object selectUserById(@PathVariable ("id")int u_id) {
@@ -43,14 +44,14 @@ public class UserController {
         return jsondata;
     }
 
-
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Object login(User user, HttpSession session) {
         Map<String,Object> jsondata = new HashMap<String,Object>();
         int status = userService.login(user);
-
         if (status == 200) {
+            int u_id = userService.selectUserByUserName(user.getUsername()).getU_id();
             session.setAttribute("user", user.getUsername());
+            session.setAttribute("u_id", u_id);
         }
         jsondata.put("status", status);
         return jsondata;
@@ -80,6 +81,36 @@ public class UserController {
         }
         jsondata.put("status", 200);
         jsondata.put("user", user);
+        return jsondata;
+    }
+
+    @RequestMapping(value = "/getuserpost", method = RequestMethod.GET)
+    public Object getUserPost(HttpSession session) {
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+        if(!new UserAction().islogined(session))
+        {
+            jsondata.put("status", 404);
+            return jsondata;
+        }
+        ArrayList<Object> arr = userService.selectAllPostByUsername((String)session.getAttribute("user"));
+
+        jsondata.put("status", 200);
+        jsondata.put("postList", arr);
+        return jsondata;
+    }
+
+    @RequestMapping(value = "/getuseranswer", method = RequestMethod.GET)
+    public Object getUserAnswer(HttpSession session) {
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+        if(!new UserAction().islogined(session))
+        {
+            jsondata.put("status", 404);
+            return jsondata;
+        }
+        ArrayList<Object> arr = userService.selectAllAnswerByUsername((String)session.getAttribute("user"));
+
+        jsondata.put("status", 200);
+        jsondata.put("answerList", arr);
         return jsondata;
     }
 }
