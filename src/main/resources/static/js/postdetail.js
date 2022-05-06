@@ -10,9 +10,9 @@ $(document).ready(function() {
                 if (msg.post != null) {
                     $("#title").html(msg.post.p_title);
                     $("#body").html(msg.post.p_body);
-                    $("#topic").html(msg.post.t_name);
-                    $("#username").html(msg.post.username);
-                    $("#date").html(msg.post.p_date);
+                    $("#topic").html("Topic： " + (msg.post.t_name));
+                    $("#username").html("Author： " + msg.post.username);
+                    $("#date").html("Post Date： " + msg.post.p_date);
                     $("#status").html("Status： " + msg.post.status);
                 }
             });
@@ -34,7 +34,7 @@ function updateAnswer() {
                         '   <div class="card-body">\n' +
                         '                <p class="card-text" style="margin-left:20px; color: red" id = "best">' + (cur.best_answer == true ? "This is the best answer!" : "") + '</p>\n' +
                         '                <p class="card-text" style="margin-left:20px;font-size: 25px;" id = "a_body">' + cur.a_content + '</p>\n' +
-                        '                <p class="card-text" style="margin-left:20px;font-size: 25px;" id = "a_uname">' + "Author： " + cur.u_id + '</p>\n' +
+                        '                <p class="card-text" style="margin-left:20px;font-size: 25px;" id = "a_uname">' + "Author： " + cur.username + '</p>\n' +
                         '                <p class="card-text" style="margin-left:20px;font-size: 20px;" id = "thumbup">' + "Likes： " + cur.thumbup +
                         '<button class="btn btn-primary" style="margin-left: 20px" onclick="addlike(' + cur.a_id + ')">I like it!</button>' + '</p>\n' +
                         '                <p class="card-title" style="margin-left:20px;" id = "a_date">' + "Answer date： " + cur.a_date + '</p>\n' +
@@ -75,4 +75,9 @@ function addlike(aid)
             }
         }
     )
+}
+
+function createanswer()
+{
+    window.location.href = "http://localhost:5000/createanswer.html?pid=" + getQueryVariable("pid");
 }

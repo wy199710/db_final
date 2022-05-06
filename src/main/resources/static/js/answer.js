@@ -14,8 +14,7 @@ $(document).ready(function() {
                                 '                <p class="card-text" style="margin-left:20px;font-size: 25px;" id = "body">' + "Answer content：" + cur.a_content + '</p>\n' +
                                 '                <p class="card-text" style="margin-left:20px;font-size: 20px;" id = "date">' + "Answer Date： " + cur.a_date + '</p>\n' +
                                 '                <p class="card-title" style="margin-left:20px;" id = "thumbup">' + "Thumbup： " + cur.thumbup + '</p>\n' +
-                                '                <p class="card-text" style="margin-left:20px;" id = "ifbest">' + "Best Answer： " + cur.p_date + '</p>\n' +
-                                '                <p class="card-text" style="margin-left:20px;color: darkgreen" id = "status">' + "Status： " + (cur.status == 1 ? "Yes" : "No") + '</p>\n' +
+                                '                <p class="card-text" style="margin-left:20px;color: red" id = "ifbest">' + "Best Answer： " + (cur.best_answer == true? "Yes" : "No") + '</p>\n' +
                                 '                <a href="#" class="btn btn-primary" style="margin-left:20px;margin-bottom: 20px;" onclick="gopost(' + cur.p_id + ')">View Question</a>\n' +
                                 '            </div>';
                         });

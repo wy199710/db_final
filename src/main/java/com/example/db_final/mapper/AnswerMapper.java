@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.*;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
+
 @Mapper
 public interface AnswerMapper {
     @Select("select * from Answer where a_id = #{a_id}")
@@ -16,11 +18,12 @@ public interface AnswerMapper {
     @Select("select * from Answer inner join User on User.u_id= Answer.u_id and username = #{username} order by thumbup desc, a_date desc")
     ArrayList<Answer> selectAnswerByUsername(String username);
 
-    @Select("select * from Answer where p_id = #{p_id} order by thumbup desc, a_date desc")
-    ArrayList<Answer> selectAllAnswerByPid(@Param("p_id")int p_id);
+    @Select("select * from Answer natural join User where p_id = #{p_id} order by thumbup desc, a_date desc")
+    ArrayList<Map<String,Object>> selectAllAnswerByPid(@Param("p_id")int p_id);
 
-    @Insert("insert into Answer (u_id, p_id,t_id, a_date, a_content) values(#{u_id},#{p_id},#{t_id},#{a_date},#{a_content})")
-    int insertAnswer(@Param("u_id")int u_id, @Param("p_id")int p_id, @Param("t_id")int t_id,Date a_date, String a_content);
+    @Insert("insert into Answer (u_id, p_id,t_id, a_content, a_date, thumbup, best_answer) values(#{u_id},#{p_id},#{t_id},#{a_content}, #{a_date},#{thumbup},#{best_answer})")
+    int insertAnswer(Answer answer);
+//    int insertAnswer(@Param("u_id")int u_id, @Param("p_id")int p_id, @Param("t_id")int t_id, String a_content, Date a_date, int thumbup, boolean best_answer);
 
     @Update("update Answer set thumbup = thumbup + 1 where a_id = #{a_id}")
     int updateThumbUp(@Param("a_id")int a_id);

@@ -26,6 +26,7 @@ public class PostService {
         postMapper.insertPost(post.getU_id(), post.getT_id(), post.getP_title(), post.getP_body(), post.getP_date(), post.getStatus());
         return 200;
     }
-
-
+    public ArrayList<Map<String,Object>> searchPost(String keyword) {
+        return postMapper.searchPost(keyword);
+    }
 }

@@ -39,7 +39,7 @@ public class PostController {
         return jsondata;
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/createpost", method = RequestMethod.POST)
     public Object createPost(Post post, HttpSession session) {
         Map<String,Object> jsondata = new HashMap<String,Object>();
         int u_id = (int)session.getAttribute("u_id");
@@ -54,6 +54,15 @@ public class PostController {
         } else {
             jsondata.put("status", 200);
         }
+        return jsondata;
+    }
+
+    @RequestMapping(value = "/searchpost", method = RequestMethod.POST)
+    public Object searchPost(String keyword) {
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+
+        ArrayList<Map<String,Object>> posts = postService.searchPost(keyword);
+        jsondata.put("post", posts);
         return jsondata;
     }
 }

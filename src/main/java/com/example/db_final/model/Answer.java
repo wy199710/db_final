@@ -8,7 +8,7 @@ public class Answer {
     private int u_id;
     private int p_id;
     private int t_id;
-    private Date a_date;
+    private String a_date;
     private String a_content;
     private int thumbup;
     private Boolean best_answer;

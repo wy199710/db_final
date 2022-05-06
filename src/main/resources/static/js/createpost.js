@@ -19,7 +19,7 @@ function createpost() {
         "status": "0",
     }
     $.ajax({
-            url:'http://localhost:5000/create',
+            url:'http://localhost:5000/createpost',
             type:"post",
             datatype:"json",
             data:post,
