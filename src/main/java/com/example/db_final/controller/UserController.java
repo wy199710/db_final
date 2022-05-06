@@ -48,9 +48,10 @@ public class UserController {
     public Object login(User user, HttpSession session) {
         Map<String,Object> jsondata = new HashMap<String,Object>();
         int status = userService.login(user);
-
         if (status == 200) {
+            int u_id = userService.selectUserByUserName(user.getUsername()).getU_id();
             session.setAttribute("user", user.getUsername());
+            session.setAttribute("u_id", u_id);
         }
         jsondata.put("status", status);
         return jsondata;
@@ -91,7 +92,7 @@ public class UserController {
             jsondata.put("status", 404);
             return jsondata;
         }
-        ArrayList<Post> arr = userService.selectAllPostByUsername((String)session.getAttribute("user"));
+        ArrayList<Object> arr = userService.selectAllPostByUsername((String)session.getAttribute("user"));
 
         jsondata.put("status", 200);
         jsondata.put("postList", arr);
@@ -106,10 +107,10 @@ public class UserController {
             jsondata.put("status", 404);
             return jsondata;
         }
-        ArrayList<Answer> arr = userService.selectAllAnswerByUsername((String)session.getAttribute("user"));
+        ArrayList<Object> arr = userService.selectAllAnswerByUsername((String)session.getAttribute("user"));
 
         jsondata.put("status", 200);
-        jsondata.put("postList", arr);
+        jsondata.put("answerList", arr);
         return jsondata;
     }
 }

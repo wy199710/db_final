@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,10 +40,15 @@ public class PostController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public Object createPost(Post post) {
+    public Object createPost(Post post, HttpSession session) {
         Map<String,Object> jsondata = new HashMap<String,Object>();
-        int status = postService.create(post);
+        int u_id = (int)session.getAttribute("u_id");
+        post.setU_id(u_id);
+        Date day=new Date();
+        SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+        post.setP_date(sdf.format(day));
 
+        int status = postService.create(post);
         if (status == 500) {
             jsondata.put("status", 500);
         } else {

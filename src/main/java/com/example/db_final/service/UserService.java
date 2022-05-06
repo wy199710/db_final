@@ -29,11 +29,11 @@ public class UserService {
         return userMapper.selectUserByUserName(username);
     }
 
-    public ArrayList<Post> selectAllPostByUsername(String uname) {
+    public ArrayList<Object> selectAllPostByUsername(String uname) {
         return userMapper.selectAllPostByUsername(uname);
     }
 
-    public ArrayList<Answer> selectAllAnswerByUsername(String uname) {
+    public ArrayList<Object> selectAllAnswerByUsername(String uname) {
         return userMapper.selectAllAnswerByUsername(uname);
     }
 
