@@ -25,7 +25,7 @@ public class PostController {
     @RequestMapping(value = "/post")
     public Object selectAllPosts() {
         Map<String,Object> jsondata = new HashMap<String,Object>();
-        ArrayList<Post> posts = postService.selectAllPost();
+        ArrayList<Map<String,Object>> posts = postService.selectAllPost();
         jsondata.put("post", posts);
         return jsondata;
     }
@@ -34,12 +34,12 @@ public class PostController {
     @ResponseBody
     public Object selectPostById(@PathVariable("id") int id){
         Map<String,Object> jsondata = new HashMap<String,Object>();
-        Post post = postService.selectPostById(id);
+        Map<String,Object> post = postService.selectPostById(id);
         jsondata.put("post", post);
         return jsondata;
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/createpost", method = RequestMethod.POST)
     public Object createPost(Post post, HttpSession session) {
         Map<String,Object> jsondata = new HashMap<String,Object>();
         int u_id = (int)session.getAttribute("u_id");
@@ -54,6 +54,15 @@ public class PostController {
         } else {
             jsondata.put("status", 200);
         }
+        return jsondata;
+    }
+
+    @RequestMapping(value = "/searchpost", method = RequestMethod.POST)
+    public Object searchPost(String keyword) {
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+
+        ArrayList<Map<String,Object>> posts = postService.searchPost(keyword);
+        jsondata.put("post", posts);
         return jsondata;
     }
 }

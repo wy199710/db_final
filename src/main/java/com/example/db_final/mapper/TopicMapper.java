@@ -11,6 +11,9 @@ public interface TopicMapper {
     @Select("select * from Topic where t_id = #{t_id}")
     Topic selectTopicById(@Param("t_id") int t_id);
 
+    @Select("select * from Topic natural join Post where p_id = #{p_id}")
+    Topic selectTopicByPid(@Param("p_id") int p_id);
+
     @Select({"select * from Topic"})
     ArrayList<Topic> selectAllTopics();
 }

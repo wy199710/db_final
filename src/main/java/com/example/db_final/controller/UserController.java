@@ -92,7 +92,7 @@ public class UserController {
             jsondata.put("status", 404);
             return jsondata;
         }
-        ArrayList<Object> arr = userService.selectAllPostByUsername((String)session.getAttribute("user"));
+        ArrayList<Map<String,Object>> arr = userService.selectAllPostByUsername((String)session.getAttribute("user"));
 
         jsondata.put("status", 200);
         jsondata.put("postList", arr);
@@ -107,7 +107,7 @@ public class UserController {
             jsondata.put("status", 404);
             return jsondata;
         }
-        ArrayList<Object> arr = userService.selectAllAnswerByUsername((String)session.getAttribute("user"));
+        ArrayList<Map<String,Object>> arr = userService.selectAllAnswerByUsername((String)session.getAttribute("user"));
 
         jsondata.put("status", 200);
         jsondata.put("answerList", arr);

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Map;
 
 @Service
 public class UserService {
@@ -29,11 +30,11 @@ public class UserService {
         return userMapper.selectUserByUserName(username);
     }
 
-    public ArrayList<Object> selectAllPostByUsername(String uname) {
+    public ArrayList<Map<String,Object>> selectAllPostByUsername(String uname) {
         return userMapper.selectAllPostByUsername(uname);
     }
 
-    public ArrayList<Object> selectAllAnswerByUsername(String uname) {
+    public ArrayList<Map<String,Object>> selectAllAnswerByUsername(String uname) {
         return userMapper.selectAllAnswerByUsername(uname);
     }
 
