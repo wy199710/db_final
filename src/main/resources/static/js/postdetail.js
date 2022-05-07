@@ -28,7 +28,6 @@ function updateAnswer() {
         if (msg.answer != null) {
             for (const cur of msg.answer) {
                 $("#card-parent").html((index, cxt) => {
-                    // style="margin: 0 0 5px 0; border: black solid 2px; border-radius: 10px"
                     return cxt +
                         '<div className="card" style="position: relative;top:50px;left:200px;background-color:aliceblue;height:fit-content;width: 80%;border-radius: 10px">' +
                         '   <div class="card-body">\n' +

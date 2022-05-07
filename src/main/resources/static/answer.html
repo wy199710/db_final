@@ -18,40 +18,12 @@
 </head>
 <body class="bodyback" style="overflow: auto;">
 <div class="container-fluid">
-<!--    <div class="row" style="position: relative;top:50px;left:100px;">-->
-<!--        <div  style="display:block;width: 90%;height:600px;background-color: white; border-radius: 15px">-->
-<!--            <ul id="list-parent" class="list-group" style="margin-top: 50px">-->
-    <div id="card-parent" class="card " style="position: relative;top:50px;left:200px;background-color:aliceblue;height:fit-content;width: 80%;border-radius: 10px">
-<!--    <div class="card " style="position: relative;top:50px;left:200px;background-color:aliceblue;height:fit-content;width: 80%;border-radius: 10px">-->
-<!--        <div class="card-header" style="text-align:center;background:dodgerblue;color: white;font-size: 35px;border-radius: 10px">My answer</div>-->
-<!--        <div class="card-body">-->
-<!--            <p class="card-text" style="margin-left:20px;font-size: 25px;" id = "body"></p>-->
-<!--            <p class="card-text" style="margin-left:20px;" id = "date"> </p>-->
-<!--            <p class="card-text" style="margin-left:20px;color: darkgreen" id = "status"> </p>-->
-<!--            <p class="card-title" style="margin-left:20px;" id = "best"></p>-->
-<!--            <a href="#" class="btn btn-primary" style="margin-left:20px;margin-bottom: 20px;">View Question</a>-->
-<!--        </div>-->
-<!--    </div>-->
+    <div id="card-parent" class="card " style="position: relative;top:50px;left:200px;background-color:transparent;height:fit-content;width: 80%;border-radius: 10px">
     </div>
 </div>
 
 <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/js/answer.js"></script>
-<!--<script>-->
-<!--    $(document).ready(function() {-->
-<!--        $.getJSON("http://localhost:5000/answer", function (msg) {-->
-<!--            if (msg.status == 404)-->
-<!--                alert("Please login!");-->
-<!--            else {-->
-<!--                console.log(msg.answer[1]);-->
-<!--                $("#body").html("Answer content " + msg.answer[1].a_content);-->
-<!--                $("#date").html("Answer Date: " + msg.answer[1].a_date);-->
-<!--                $("#status").html("Thumbup: " + (msg.answer[1].thumb_up));-->
-<!--                $("#best").html("Best Answer: " + (msg.answer[1].status == 1 ? "Yes" : "No"));-->
-<!--            }-->
-<!--        });-->
-<!--    })-->
-<!--</script>-->
 </body>
 </html>
