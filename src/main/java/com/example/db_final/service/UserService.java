@@ -38,6 +38,10 @@ public class UserService {
         return userMapper.selectAllAnswerByUsername(uname);
     }
 
+    public int updatePoint(int u_id){return userMapper.updatePoint(u_id);}
+
+    public int updateLevel(int u_id){return userMapper.updateLevel(u_id);}
+
     public int login(User user) {
         temp = userMapper.selectUserByUserName(user.getUsername());
         if(temp != null) {

@@ -9,7 +9,7 @@ $(document).ready(function() {
             $("#email").html("My email: " + msg.user.email);
             $("#address").html("My address: " + msg.user.city + ", " + msg.user.state + ", " + msg.user.country);
             $("#point").html("My current points: " + msg.user.point);
-            $("#level").html("My current level: " + msg.user.level);
+            $("#level").html("My current level: " + (msg.user.level ==3 ? 'expert':msg.user.level ==2 ? 'advanced':'basic'));
         }
     });
 })

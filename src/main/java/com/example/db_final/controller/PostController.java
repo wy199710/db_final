@@ -60,7 +60,6 @@ public class PostController {
     @RequestMapping(value = "/searchpost", method = RequestMethod.POST)
     public Object searchPost(String keyword) {
         Map<String,Object> jsondata = new HashMap<String,Object>();
-
         ArrayList<Map<String,Object>> posts = postService.searchPost(keyword);
         jsondata.put("post", posts);
         return jsondata;

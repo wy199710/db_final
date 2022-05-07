@@ -11,6 +11,6 @@ public class User {
     private String state;
     private String country;
     private String profile;
-    private String level;
+    private int level;
     private int point;
 }

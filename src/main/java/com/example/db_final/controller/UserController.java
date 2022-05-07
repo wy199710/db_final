@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,6 +42,27 @@ public class UserController {
     public Object selectUserById(@PathVariable ("id")int u_id) {
         Map<String,Object> jsondata = new HashMap<String,Object>();
         User user= userService.selectUserById(u_id);
+        user.setPoint(userService.updatePoint(u_id));
+        user.setLevel(userService.updateLevel(u_id));
+        jsondata.put("user", user);
+        return jsondata;
+    }
+    @GetMapping(value = "/point/{id}")
+    @ResponseBody
+    public Object updatePoint(@PathVariable ("id")int u_id) {
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+        User user= userService.selectUserById(u_id);
+        user.setPoint(userService.updatePoint(u_id));
+        jsondata.put("user", user);
+        return jsondata;
+    }
+
+    @GetMapping(value = "/level/{id}")
+    @ResponseBody
+    public Object updateLevel(@PathVariable ("id")int u_id) {
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+        User user= userService.selectUserById(u_id);
+        user.setLevel(userService.updateLevel(u_id));
         jsondata.put("user", user);
         return jsondata;
     }
@@ -74,11 +97,12 @@ public class UserController {
             return jsondata;
         }
         User user = userMapper.selectUserByUserName((String)session.getAttribute("user"));
-        if(user == null)
-        {
+        if(user == null) {
             jsondata.put("status", 404);
             return jsondata;
         }
+        user.setLevel(userService.updatePoint(user.getU_id()));
+        user.setLevel(userService.updateLevel(user.getU_id()));
         jsondata.put("status", 200);
         jsondata.put("user", user);
         return jsondata;
@@ -113,4 +137,6 @@ public class UserController {
         jsondata.put("answerList", arr);
         return jsondata;
     }
+
+
 }

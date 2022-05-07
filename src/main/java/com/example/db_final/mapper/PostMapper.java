@@ -29,6 +29,6 @@ public interface PostMapper {
     @Update("update Post set status = #{status} where p_id = #{p_id}")
     int updateStatus(@Param("p_id")int p_id,boolean status);
 
-    @Select("select * from Post natural join User natural join Topic where p_title like '%${keyword}%' order by p_date desc")
+    @Select("select * from Post p natural join User natural join Topic t where p.p_title like '%${keyword}%' or p.p_body like '%${keyword}%' or t.t_name like '%${keyword}%' order by p_date desc")
     ArrayList<Map<String,Object>> searchPost(String keyword);
 }
