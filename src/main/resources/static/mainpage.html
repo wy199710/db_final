@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>MainPage</title>
-    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/index.css">
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
     <nav class="navbar navbar-expand navbar-dark" aria-label="Second navbar example">
         <div style="background: black;width: 100%;">
                 <ul>
@@ -25,42 +23,11 @@
    <p> <input style="margin-left:100px;height:50px;width: 90%; border-radius: 15px;font-size:30px" class="form-control" id="search" placeholder="Search for question & answer" value="" type="search">
 </form>
 </div>
-<<<<<<< Updated upstream
-<div style="background:white;margin-top:30px;margin-left:100px;height:1000px;width:90%; border-radius: 15px;font-size:30px" >
-    <div  style="display:block;width: 90%;height:600px;background-color: white; border-radius: 15px">
-        <p style="margin-left:30px;font-size: 25px" id = "title">Hello</p>
-        <p style="margin-left:30px;font-size: 25px" id = "body">My email: </p>
-        <p style="margin-left:30px;font-size: 25px" id = "date">My address: </p>
-        <p style="margin-left:30px;font-size: 25px" id = "status">My current points: </p>
-</div>
-
-<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
-<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $.getJSON("http://localhost:5000/post",function(msg){
-            if(msg.status == 404)
-                alert("Please login!");
-            else
-            {
-                console.log(msg.post);
-                   for(var i =0;i<msg.post.length;i++){
-                    $("#title").html("Title: " + msg.post[i].p_title);
-                    $("#body").html("Description: "+msg.post[i].p_body);
-                    $("#date").html("Post date: " + msg.post[i].p_date);
-                    $("#status").html("Status:" + (msg.post[i].status ==1 ? "resolved":"unresolved"));
-                   }
-               }
-        });
-    })
-</script>
-=======
     <div class="container-fluid">
         <div id="card-parent" class="card " style="position: relative;top:50px;left:200px;background-color:transparent;height:fit-content;width: 80%;border-radius: 10px"></div>
     </div>
 <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="/js/mainpage.js"></script>
->>>>>>> Stashed changes
 </body>
 </html>
