@@ -11,6 +11,7 @@ $(document).ready(function() {
                 if (msg.postList != null) {
                     for (const cur of msg.postList) {
                         $("#card-parent").html((index, cxt) => {
+<<<<<<< Updated upstream
                             return cxt + '   <div class="card-body">\n' +
                                 '                <p class="card-text" style="margin-left:20px;font-size: 25px;" id = "title">' + cur.p_title + '</p>\n' +
                                 '                <p class="card-text" style="margin-left:20px;font-size: 25px;" id = "body">' + "Description： " + cur.p_body + '</p>\n' +
@@ -18,26 +19,21 @@ $(document).ready(function() {
                                 '                <p class="card-title" style="margin-left:20px;" id = "username">' + "Author： " + cur.u_id + '</p>\n' +
                                 '                <p class="card-text" style="margin-left:20px;" id = "date">' + "Post date： " + cur.p_date + '</p>\n' +
                                 '                <p class="card-text" style="margin-left:20px;color: darkgreen" id = "status">' + "Status： " + cur.status + '</p>\n' +
+=======
+                            return cxt + '  <div class="card-body" style="background-color: white;height:auto;margin-top:30px;border-radius: 10px">\n' +
+                                '                <p class="card-title" style="padding-left:20px;font-size: 25px;background-color: darkblue;color:white;border-radius: 10px" id = "title">'+ "  "  + cur.p_title + '</p>\n' +
+                                '                <p class="card-text" style="margin-left:20px;font-size: 22px;" id = "body">' + cur.p_body + '</p>\n' +
+                                '                <p class="card-text" style="margin-left:20px;font-size: 18px;color:darkred;font-style:italic" id = "topic">' + "Topic：" + cur.t_name + '</p>\n' +
+                                '                <p class="card-text" style="margin-left:20px;font-size: 18px;" id = "username">' + "Author: " + cur.username + '</p>    ' +
+                                '                <p class="card-text" style="margin-left:20px;" id = "date">' + "Post date: " + cur.p_date + '</p>\n' +
+                                '                <p class="card-text" style="margin-left:20px;color: darkgreen" id = "status">' + "Status：" + (cur.status==1 ? "resolved":"unresolved") + '</p>\n' +
+>>>>>>> Stashed changes
                                 '                <a href="#" class="btn btn-primary" style="margin-left:20px;margin-bottom: 20px;"  onclick="gopost(' + cur.p_id + ')">See All answers</a>\n' +
                                 '            </div>';
                         });
                     }
                 }
             });
-
-            // $.getJSON("http://localhost:5000/post",function(msg){
-            //     if(msg.status == 404)
-            //         alert("Please login!");
-            //     else {
-            //         console.log(msg.post[1]);
-            //         $("#title").html("    "+msg.post[1].p_title);
-            //         $("#username").html("Author： "+msg.post[1].u_id);
-            //         $("#topic").html("Topic： "+msg.post[1].t_id);
-            //         $("#body").html("Description: "+msg.post[1].p_body);
-            //         $("#date").html("Post date: " + msg.post[1].p_date);
-            //         $("#status").html("Status: " + (msg.post[1].status ==1 ? "Resolved":"Unresolved"));
-            //     }
-            // });
         }
 
 
