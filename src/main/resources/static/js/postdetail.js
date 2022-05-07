@@ -13,7 +13,7 @@ $(document).ready(function() {
                     $("#topic").html("Topic： " + (msg.post.t_name));
                     $("#username").html("Author： " + msg.post.username);
                     $("#date").html("Post Date： " + msg.post.p_date);
-                    $("#status").html("Status： " + msg.post.status);
+                    $("#status").html("Status： " + (msg.post.status==1 ? "resolved":"unresolved") );
                 }
             });
             updateAnswer();
@@ -30,13 +30,13 @@ function updateAnswer() {
                 $("#card-parent").html((index, cxt) => {
                     return cxt +
                         '<div className="card" style="position: relative;top:50px;left:200px;background-color:aliceblue;height:fit-content;width: 80%;border-radius: 10px">' +
-                        '   <div class="card-body">\n' +
-                        '                <p class="card-text" style="margin-left:20px; color: red" id = "best">' + (cur.best_answer == true ? "This is the best answer!" : "") + '</p>\n' +
-                        '                <p class="card-text" style="margin-left:20px;font-size: 25px;" id = "a_body">' + cur.a_content + '</p>\n' +
-                        '                <p class="card-text" style="margin-left:20px;font-size: 25px;" id = "a_uname">' + "Author： " + cur.username + '</p>\n' +
-                        '                <p class="card-text" style="margin-left:20px;font-size: 20px;" id = "thumbup">' + "Likes： " + cur.thumbup +
-                        '<button class="btn btn-primary" style="margin-left: 20px" onclick="addlike(' + cur.a_id + ')">I like it!</button>' + '</p>\n' +
-                        '                <p class="card-title" style="margin-left:20px;" id = "a_date">' + "Answer date： " + cur.a_date + '</p>\n' +
+                        '   <div class="card-body" style="background-color: white;height:auto;margin-top:30px;border-radius: 10px">\n' +
+                        '                <p class="card-text" style="margin-left:20px; color: darkred;font-size: 25px;" id = "best">' + (cur.best_answer == true ? "Best Answer:" : "") + '</p>\n' +
+                        '                <p class="card-text" style="margin-left:20px;font-size: 22px;"  id = "a_body">' + cur.a_content + '</p>\n' +
+                        '                <p class="card-text" style="margin-left:20px;font-size: 18px;" id = "a_uname">' + "Author： " + cur.username + '</p>\n' +
+                        '                <p class="card-text" style="margin-left:20px;font-size: 18px;color:darkred;font-style:italic" id = "thumbup">' + "Likes： " + cur.thumbup +
+                        '                <button class="btn btn-primary" style="margin-left: 20px" onclick="addlike(' + cur.a_id + ')">I like it!</button>' + '</p>\n' +
+                        '                <p class="card-title" style="margin-left:20px;padding-bottom: 20px;" id = "a_date">' + "Answer date： " + cur.a_date + '</p>\n' +
                         '            </div></div>';
                 });
             }

@@ -22,8 +22,6 @@ public interface UserMapper {
     @Select({"select * from User"})
     ArrayList<User> selectAllUsers();
 
-//    @Select("select * from Post natural join User natural join Topic where username = #{username} order by p_date desc")
-//    ArrayList<Object> selectAllPostByUsername(String username);
     @Select("select * from Post natural join User natural join Topic where username = #{username} order by p_date desc")
     ArrayList<Map<String,Object>> selectAllPostByUsername(String username);
 
