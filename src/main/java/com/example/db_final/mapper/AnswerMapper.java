@@ -23,7 +23,6 @@ public interface AnswerMapper {
 
     @Insert("insert into Answer (u_id, p_id,t_id, a_content, a_date, thumbup, best_answer) values(#{u_id},#{p_id},#{t_id},#{a_content}, #{a_date},#{thumbup},#{best_answer})")
     int insertAnswer(Answer answer);
-//    int insertAnswer(@Param("u_id")int u_id, @Param("p_id")int p_id, @Param("t_id")int t_id, String a_content, Date a_date, int thumbup, boolean best_answer);
 
     @Update("update Answer set thumbup = thumbup + 1 where a_id = #{a_id}")
     int updateThumbUp(@Param("a_id")int a_id);

@@ -16,4 +16,5 @@ public interface TopicMapper {
 
     @Select({"select * from Topic"})
     ArrayList<Topic> selectAllTopics();
+
 }

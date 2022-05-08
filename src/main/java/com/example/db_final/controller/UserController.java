@@ -42,8 +42,6 @@ public class UserController {
     public Object selectUserById(@PathVariable ("id")int u_id) {
         Map<String,Object> jsondata = new HashMap<String,Object>();
         User user= userService.selectUserById(u_id);
-        user.setPoint(userService.updatePoint(u_id));
-        user.setLevel(userService.updateLevel(u_id));
         jsondata.put("user", user);
         return jsondata;
     }
@@ -57,8 +55,7 @@ public class UserController {
         return jsondata;
     }
 
-    @GetMapping(value = "/level/{id}")
-    @ResponseBody
+    @RequestMapping(value = "/level/{id}")
     public Object updateLevel(@PathVariable ("id")int u_id) {
         Map<String,Object> jsondata = new HashMap<String,Object>();
         User user= userService.selectUserById(u_id);
@@ -101,8 +98,6 @@ public class UserController {
             jsondata.put("status", 404);
             return jsondata;
         }
-        user.setLevel(userService.updatePoint(user.getU_id()));
-        user.setLevel(userService.updateLevel(user.getU_id()));
         jsondata.put("status", 200);
         jsondata.put("user", user);
         return jsondata;

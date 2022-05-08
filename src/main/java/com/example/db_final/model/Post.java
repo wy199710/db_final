@@ -9,5 +9,5 @@ public class Post {
         private String p_title;
         private String p_body;
         private String p_date;
-        private String status;
+        private boolean status;
 }

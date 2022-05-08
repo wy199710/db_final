@@ -3,6 +3,7 @@ package com.example.db_final.controller;
 import com.example.db_final.mapper.PostMapper;
 import com.example.db_final.model.Post;
 import com.example.db_final.service.PostService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -62,6 +63,31 @@ public class PostController {
         Map<String,Object> jsondata = new HashMap<String,Object>();
         ArrayList<Map<String,Object>> posts = postService.searchPost(keyword);
         jsondata.put("post", posts);
+        return jsondata;
+    }
+
+    @RequestMapping(value = "/searchtopic", method = RequestMethod.POST)
+    public Object selectPostByTid(String selectsubTopic) {
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+        ArrayList<Map<String,Object>> posts = postService.selectPostByTname(selectsubTopic);
+        jsondata.put("post", posts);
+        return jsondata;
+    }
+
+    @RequestMapping(value = "/searchbigtopic", method = RequestMethod.POST)
+    public Object selectPostByParentid(int id) {
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+        ArrayList<Map<String,Object>> posts = postService.selectPostByParentid(id);
+        jsondata.put("post", posts);
+        return jsondata;
+    }
+
+    @RequestMapping(value = "/updateStatus/{id}")
+    public Object setPostSolved(@PathVariable("id") int id){
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+        Map<String,Object> post = postService.selectPostById(id);
+        postService.setPostSolved(id,true);
+        jsondata.put("post", post);
         return jsondata;
     }
 }

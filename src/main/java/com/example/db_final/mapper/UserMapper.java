@@ -25,7 +25,7 @@ public interface UserMapper {
     @Update("update User U inner join (select A.u_id as tid, SUM(A.thumbup) as total FROM Answer A group by A.u_id) tmp on tmp.tid = U.u_id set U.point = tmp.total Where U.u_id = #{id}")
     int updatePoint(@Param("id")int id);
 
-    @Update("update User set level= CASE WHEN point>10 THEN 3  WHEN point>5  THEN 2  ELSE 1 END where u_id = #{id}")
+    @Update("UPDATE User SET level = IF(point>10 , 3, IF(point>5, 2, 1))Where u_id = #{id}")
     int updateLevel(@Param("id")int id);
 
 }

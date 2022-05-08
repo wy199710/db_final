@@ -24,6 +24,8 @@ public class AnswerService {
         return answerMapper.selectAnswerByUsername(username);
     }
 
+
+
     public ArrayList<Map<String,Object>> selectAllAnswerByPid(int pid) {
         return answerMapper.selectAllAnswerByPid(pid);
     }

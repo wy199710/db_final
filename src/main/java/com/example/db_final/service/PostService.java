@@ -16,14 +16,23 @@ public class PostService {
         return postMapper.selectPostById(p_id);
     }
 
+    public ArrayList<Map<String,Object>> selectPostByTname(String t_name) {
+        return postMapper.selectPostByTname(t_name);
+    }
+    public ArrayList<Map<String,Object>> selectPostByParentid(int id) {
+        return postMapper.selectPostByParentid(id);
+    }
+
     public ArrayList<Map<String,Object>> selectAllPost() {
         return postMapper.selectAllPost();
     }
 
-
+    public void setPostSolved(Integer id, Boolean status) {
+        postMapper.updateStatus(id, status);
+    }
 
     public int create(Post post) {
-        postMapper.insertPost(post.getU_id(), post.getT_id(), post.getP_title(), post.getP_body(), post.getP_date(), post.getStatus());
+        postMapper.insertPost(post.getU_id(), post.getT_id(), post.getP_title(), post.getP_body(), post.getP_date());
         return 200;
     }
     public ArrayList<Map<String,Object>> searchPost(String keyword) {

@@ -35,6 +35,26 @@ function gopost(pid) {
     window.location.href = "http://localhost:5000/postdetail.html?pid=" + pid;
 }
 
+function selectBigTopic(){
+    var id= $("#parent_id").val();
+    var data = {
+        "id":id,
+    }
+    console.log(data.id);
+    $.ajax({
+            url:'http://localhost:5000/searchbigtopic',
+            type:"post",
+            datatype:"json",
+            data: data,
+            async :true,
+            success:function(tt){
+                if(tt.post != null) {
+                    showpost(tt.post);
+                }
+            }
+        }
+    )
+}
 function search() {
     var keyword = $("#search").val();
     var data = {
@@ -42,6 +62,26 @@ function search() {
     }
     $.ajax({
             url:'http://localhost:5000/searchpost',
+            type:"post",
+            datatype:"json",
+            data: data,
+            async :true,
+            success:function(tt){
+                if(tt.post != null) {
+                    showpost(tt.post);
+                }
+            }
+        }
+    )
+}
+function selectTopic(){
+    var  selectsubTopic= $("#selectsubTopic").val();
+    var data = {
+        "selectsubTopic":selectsubTopic,
+    }
+    console.log(data.selectsubTopic);
+    $.ajax({
+            url:'http://localhost:5000/searchtopic',
             type:"post",
             datatype:"json",
             data: data,

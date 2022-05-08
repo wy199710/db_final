@@ -14,6 +14,7 @@ $(document).ready(function() {
                     $("#username").html("Author： " + msg.post.username);
                     $("#date").html("Post Date： " + msg.post.p_date);
                     $("#status").html("Status： " + (msg.post.status==1 ? "resolved":"unresolved") );
+                    $("#u_id").html(msg.post.u_id );
                 }
             });
             updateAnswer();
@@ -70,6 +71,23 @@ function addlike(aid)
                 if(tt.status==200)
                 {
                     updateAnswer();
+                }
+            }
+        }
+    )
+}
+
+function resolved()
+{
+    $.ajax({
+            url:'http://localhost:5000/updateStatus/'+getQueryVariable("pid"),
+            type:"post",
+            datatype:"json",
+            async :true,
+            success:function(tt){
+                if(tt.status==200)
+                {
+
                 }
             }
         }

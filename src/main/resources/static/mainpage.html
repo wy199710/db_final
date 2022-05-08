@@ -21,7 +21,20 @@
 </head>
 <body class="bodyback" style="overflow: auto;">
 <div>
-   <input onchange="search()" style="margin-left:100px;height:50px;width: 90%; border-radius: 15px;font-size:30px" class="form-control" id="search" placeholder="Search for question & answer" value="" type="text">
+   <input style="margin-left:100px;height:50px;width: 90%; border-radius: 15px;font-size:30px" class="form-control" id="search" placeholder="Search for question & answer" value="" type="text">
+    <select id="parent_id" onchange="selectBigTopic()"  class="form-select"style="margin-top:20px;margin-left:100px;height:40px;width: 40%; border-radius: 10px"  aria-label="Default select example">
+        <option selected value="">Select Topic</option>
+        <option value="1">Computer Science</option>
+        <option value="2">Math</option>
+    </select>
+    <select id="selectsubTopic" onchange="selectTopic()" class="form-select" style="margin-top:20px;margin-left:100px;height:40px;width: 40%;border-radius: 10px" aria-label="Default select example">
+        <option selected value="">Select subTopic</option>
+        <option value="Database" >Database</option>
+        <option value="Algorithm" >Algorithm</option>
+        <option value="Operating System" >Operating System</option>
+        <option value="Theory" >Theory</option>
+        <option value="Applied Math" >Applied Math</option>
+    </select>
 </div>
     <div class="container-fluid">
         <div id="card-parent" class="card " style="position: relative;top:50px;left:200px;background-color:transparent;height:fit-content;width: 80%;border-radius: 10px"></div>
