@@ -22,13 +22,16 @@ public class PostService {
     public ArrayList<Map<String,Object>> selectPostByParentid(int id) {
         return postMapper.selectPostByParentid(id);
     }
+    public ArrayList<Map<String,Object>> selectPostByParentidAndTname(int id,String t_name) {
+        return postMapper.selectPostByParentidAndTname(id,t_name);
+    }
 
     public ArrayList<Map<String,Object>> selectAllPost() {
         return postMapper.selectAllPost();
     }
 
-    public void setPostSolved(Integer id, Boolean status) {
-        postMapper.updateStatus(id, status);
+    public int setPostSolved(Integer id, Boolean status) {
+        return postMapper.updateStatus(id, status);
     }
 
     public int create(Post post) {

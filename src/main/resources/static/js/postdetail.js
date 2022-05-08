@@ -1,28 +1,27 @@
 var pid;
 $(document).ready(function() {
-    $.getJSON("http://localhost:5000/getuserinfo",function(msg){
+})
 
-        if(msg.status == 404)
+function updatePost() {
+    $.getJSON("http://localhost:5000/getuserinfo", function (msg) {
+        if (msg.status == 404)
             alert("Please login!");
         else {
             p_id = getQueryVariable("pid");
-            $.getJSON("http://localhost:5000/post/" + p_id,function(msg){
+            $.getJSON("http://localhost:5000/post/" + p_id, function (msg) {
                 if (msg.post != null) {
                     $("#title").html(msg.post.p_title);
                     $("#body").html(msg.post.p_body);
                     $("#topic").html("Topic： " + (msg.post.t_name));
                     $("#username").html("Author： " + msg.post.username);
                     $("#date").html("Post Date： " + msg.post.p_date);
-                    $("#status").html("Status： " + (msg.post.status==1 ? "resolved":"unresolved") );
-                    $("#u_id").html(msg.post.u_id );
+                    $("#status").html("Status： " + (msg.post.status == 1 ? "resolved" : "unresolved"));
                 }
             });
             updateAnswer();
         }
     });
-
-})
-
+}
 function updateAnswer() {
     $("#card-parent").html('');
     $.getJSON("http://localhost:5000/answerbypid/" + p_id,function(msg){
@@ -87,7 +86,8 @@ function resolved()
             success:function(tt){
                 if(tt.status==200)
                 {
-
+                    console.log(12343124);
+                 updatePost();
                 }
             }
         }
