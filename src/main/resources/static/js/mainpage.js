@@ -35,14 +35,14 @@ function gopost(pid) {
     window.location.href = "http://localhost:5000/postdetail.html?pid=" + pid;
 }
 
-function selectBigTopic(){
-    var id= $("#parent_id").val();
+function search() {
+    var keyword = $("#search").val();
     var data = {
-        "id":id,
+        "keyword": keyword,
     }
-    console.log(data.id);
+    console.log(data.keyword)
     $.ajax({
-            url:'http://localhost:5000/searchbigtopic',
+            url:'http://localhost:5000/searchpost',
             type:"post",
             datatype:"json",
             data: data,
@@ -55,13 +55,14 @@ function selectBigTopic(){
         }
     )
 }
-function search() {
-    var keyword = $("#search").val();
+function selectBigTopic(){
+    var id= $("#parent_id").val();
     var data = {
-        "keyword": keyword,
+        "id":id,
     }
+    console.log(data.id);
     $.ajax({
-            url:'http://localhost:5000/searchpost',
+            url:'http://localhost:5000/searchbigtopic',
             type:"post",
             datatype:"json",
             data: data,

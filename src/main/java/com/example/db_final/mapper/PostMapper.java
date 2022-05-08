@@ -14,13 +14,13 @@ public interface PostMapper {
     @Select("select * from Post natural join User natural join Topic order by p_date desc")
     ArrayList<Map<String,Object>> selectAllPost();
 
-    @Select("select * from Post natural join Topic where t_name = #{t_name} order by p_date desc")
+    @Select("select * from Post natural join Topic natural join User where t_name = #{t_name} order by p_date desc")
     ArrayList<Map<String,Object>> selectPostByTname(@Param("t_name")String t_name);
 
     @Select("select * from Post inner join User on User.u_id = Post.u_id and username = #{username} order by p_date desc")
     ArrayList<Post> selectAllPostByUsername(String username);
 
-    @Select("select * from Post natural join Topic where t_parent_id = #{t_id} order by p_date desc")
+    @Select("select * from Post natural join Topic natural join User where t_parent_id = #{t_id} order by p_date desc")
     ArrayList<Map<String,Object>> selectPostByParentid(@Param("t_id")int t_id);
 
 
@@ -33,6 +33,6 @@ public interface PostMapper {
     @Update("update Post set status = #{status} where p_id = #{p_id}")
     int updateStatus(@Param("p_id")int p_id,boolean status);
 
-    @Select("select * from Post p natural join User natural join Topic t where p.p_title like '%${keyword}%' or p.p_body like '%${keyword}%' or t.t_name like '%${keyword}%' order by p_date desc")
+    @Select("select * from Post natural join User natural join Topic where p_title like '%${keyword}%' or p_body like '%${keyword}%' order by p_date desc")
     ArrayList<Map<String,Object>> searchPost(String keyword);
 }

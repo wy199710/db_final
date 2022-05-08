@@ -21,7 +21,7 @@
 </head>
 <body class="bodyback" style="overflow: auto;">
 <div>
-   <input style="margin-left:100px;height:50px;width: 90%; border-radius: 15px;font-size:30px" class="form-control" id="search" placeholder="Search for question & answer" value="" type="text">
+   <input id="search" style="margin-left:100px;height:50px;width: 90%;border-radius:15px;font-size:30px"class="form-control" onchange="search()" placeholder="Search for question & answer" value="">
     <select id="parent_id" onchange="selectBigTopic()"  class="form-select"style="margin-top:20px;margin-left:100px;height:40px;width: 40%; border-radius: 10px"  aria-label="Default select example">
         <option selected value="">Select Topic</option>
         <option value="1">Computer Science</option>
