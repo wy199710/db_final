@@ -28,4 +28,6 @@ public interface UserMapper {
     @Update("UPDATE User SET level = IF(point>10 , 3, IF(point>5, 2, 1))Where u_id = #{id}")
     int updateLevel(@Param("id")int id);
 
+    @Update("update User set email=#{email}, profile=#{profile}, state=#{state}, country=#{country}, city=#{city} where u_id=#{id}")
+    int updateProfile(@Param("id") int id,@Param("email") String email, @Param("city") String city,@Param("state") String state,@Param("country") String country,@Param("profile") String profile);
 }

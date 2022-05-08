@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+</head>
+<body class="bodyback">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <div class="row" style="position: absolute;top:100px;left:100px;">
+                <div class="col-md-6" style="display:block;width: 500px;height: 770px;background-color: white; border-radius: 15px">
+                    <form style="margin-top: 30px" method="post" action="index.js">
+                        <h1 style="text-align: center">Edit Personal Profile</h1>
+                        <div style="font-size: 20px"><p>Email:
+                            <input style="height:40px;border-radius: 5px" class="form-control" id="email" placeholder="Please enter email..." value="" type="email"></p></div>
+                        <div style="font-size: 20px"><p>City:
+                            <input style="height:40px;border-radius: 5px" class="form-control" id="city" placeholder="Please enter city..." value="" type="text"></p></div>
+                        <div style="font-size: 20px"><p>State:
+                            <input style="height:40px;border-radius: 5px" class="form-control" id="state" placeholder="Please enter state..." value="" type="text"></p></div>
+                        <div style="font-size: 20px"><p>Country:
+                            <input style="height:40px;border-radius: 5px" class="form-control" id="country" placeholder="Please enter country..." value="" type="text"></p></div>
+                        <div style="font-size: 20px"><p>Profile:
+                            <input style="height:40px;border-radius: 5px" class="form-control" id="profile" placeholder="Please enter your personal introduction..." value="" type="text"></p></div>
+                        <p style="margin-top: 20px;padding:15px;"><input class="btn btn-primary btn-lg btn-block" value="Edit" onclick="edit();" type="button"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/js/editprofile.js">
+
+
+</script>
+</body>
+</html>

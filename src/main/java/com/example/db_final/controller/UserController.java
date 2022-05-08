@@ -132,6 +132,18 @@ public class UserController {
         jsondata.put("answerList", arr);
         return jsondata;
     }
-
+    @RequestMapping(value = "/updateProfile", method = RequestMethod.POST)
+    public Object updateProfile(User user, HttpSession session) {
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+        int u_id = (int)session.getAttribute("u_id");
+        user.setU_id(u_id);
+        int status = userService.updateProfile(user);
+        if (status == 500) {
+            jsondata.put("status", 500);
+        } else {
+            jsondata.put("status", 200);
+        }
+        return jsondata;
+    }
 
 }
