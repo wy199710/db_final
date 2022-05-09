@@ -13,7 +13,7 @@ $(document).ready(function() {
                     $("#topic").html("Topic： " + (msg.post.t_name));
                     $("#username").html("Author： " + msg.post.username);
                     $("#date").html("Post Date： " + msg.post.p_date);
-                    $("#status").html("Status： " + msg.post.status);
+                    $("#status").html("Status： " + (msg.post.status==1?"resolved":"unresolved"));
                 }
             });
             updateAnswer();
