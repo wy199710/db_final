@@ -35,31 +35,12 @@ function gopost(pid) {
     window.location.href = "http://localhost:5000/postdetail.html?pid=" + pid;
 }
 
-function selectBigTopic(){
-    var id= $("#parent_id").val();
-    var data = {
-        "id":id,
-    }
-    console.log(data.id);
-    $.ajax({
-            url:'http://localhost:5000/searchbigtopic',
-            type:"post",
-            datatype:"json",
-            data: data,
-            async :true,
-            success:function(tt){
-                if(tt.post != null) {
-                    showpost(tt.post);
-                }
-            }
-        }
-    )
-}
 function search() {
     var keyword = $("#search").val();
     var data = {
         "keyword": keyword,
     }
+    console.log(data.keyword)
     $.ajax({
             url:'http://localhost:5000/searchpost',
             type:"post",
@@ -74,7 +55,63 @@ function search() {
         }
     )
 }
+
 function selectTopic(){
+    var id= $("#parent_id").val();
+    var selectsubTopic= $("#selectsubTopic").val();
+    console.log("id"+id);
+    console.log("sb"+selectsubTopic)
+    if(!id && !selectsubTopic){
+        $.getJSON("http://localhost:5000/post",function(msg){
+            if (msg.post != null) {
+                showpost(msg.post);
+            }
+        });
+    } else if( id && !selectsubTopic){
+        console.log ("id12reweew");
+        selectBigTopic();
+    }else if( !id && selectsubTopic){
+        selectsmallTopic();
+    } else{
+        var data = {
+         "id":id,
+         "selectsubTopic":selectsubTopic,
+       }
+        $.ajax({
+                url:'http://localhost:5000/searchbothtopic',
+                type:"post",
+                datatype:"json",
+                data: data,
+                async :true,
+                success:function(tt){
+                    if(tt.post != null) {
+                        showpost(tt.post);
+                    }
+                }
+            }
+        )
+    }
+}
+function selectBigTopic(){
+    var id= $("#parent_id").val();
+    var data = {
+        "id":id,
+    }
+    $.ajax({
+            url:'http://localhost:5000/searchbigtopic',
+            type:"post",
+            datatype:"json",
+            data: data,
+            async :true,
+            success:function(tt){
+                if(tt.post != null) {
+                    showpost(tt.post);
+                }
+            }
+        }
+    )
+}
+function selectsmallTopic(){
     var  selectsubTopic= $("#selectsubTopic").val();
     var data = {
         "selectsubTopic":selectsubTopic,

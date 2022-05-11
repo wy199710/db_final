@@ -13,8 +13,7 @@ $(document).ready(function() {
                     $("#topic").html("Topic： " + (msg.post.t_name));
                     $("#username").html("Author： " + msg.post.username);
                     $("#date").html("Post Date： " + msg.post.p_date);
-                    $("#status").html("Status： " + (msg.post.status==1 ? "resolved":"unresolved") );
-                    $("#u_id").html(msg.post.u_id );
+                    $("#status").html("Status： " + (msg.post.status==1?"resolved":"unresolved"));
                 }
             });
             updateAnswer();
@@ -22,7 +21,6 @@ $(document).ready(function() {
     });
 
 })
-
 function updateAnswer() {
     $("#card-parent").html('');
     $.getJSON("http://localhost:5000/answerbypid/" + p_id,function(msg){
@@ -87,7 +85,7 @@ function resolved()
             success:function(tt){
                 if(tt.status==200)
                 {
-
+                    console.log(12343124);
                 }
             }
         }

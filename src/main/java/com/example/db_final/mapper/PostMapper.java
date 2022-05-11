@@ -20,11 +20,14 @@ public interface PostMapper {
     @Select("select * from Post inner join User on User.u_id = Post.u_id and username = #{username} order by p_date desc")
     ArrayList<Post> selectAllPostByUsername(String username);
 
-    @Select("select * from Post natural join Topic where t_parent_id = #{t_id} order by p_date desc")
+    @Select("select * from Post natural join Topic natural join User where t_parent_id = #{t_id} order by p_date desc")
     ArrayList<Map<String,Object>> selectPostByParentid(@Param("t_id")int t_id);
 
     @Select("select * from Post where u_id = #{u_id} and t_id = #{t_id} order by p_date desc")
     ArrayList<Post> selectAllPostByByUidAndTid(@Param("p_id")int u_id, @Param("t_id")int t_id);
+
+    @Select("select * from Post natural join Topic natural join User where t_parent_id = #{t_id} and t_name = #{t_name}  order by p_date desc")
+    ArrayList<Map<String,Object>> selectPostByParentidAndTname(@Param("t_id")int t_id,@Param("t_name")String t_name);
 
     @Insert("insert into Post (u_id, t_id, p_title, p_body, p_date, status) values(#{u_id},#{t_id},#{p_title},#{p_body},#{p_date})")
     int insertPost(@Param("u_id")int u_id, @Param("t_id")int t_id, String p_title, String p_body,String p_date);
@@ -32,6 +35,6 @@ public interface PostMapper {
     @Update("update Post set status = #{status} where p_id = #{p_id}")
     int updateStatus(@Param("p_id")int p_id,boolean status);
 
-    @Select("select * from Post p natural join User natural join Topic t where p.p_title like '%${keyword}%' or p.p_body like '%${keyword}%' or t.t_name like '%${keyword}%' order by p_date desc")
+    @Select("select * from Post natural join User natural join Topic where p_title like '%${keyword}%' or p_body like '%${keyword}%' order by p_date desc")
     ArrayList<Map<String,Object>> searchPost(String keyword);
 }

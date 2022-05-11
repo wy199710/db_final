@@ -67,7 +67,7 @@ public class PostController {
     }
 
     @RequestMapping(value = "/searchtopic", method = RequestMethod.POST)
-    public Object selectPostByTid(String selectsubTopic) {
+    public Object selectPostByTname(String selectsubTopic) {
         Map<String,Object> jsondata = new HashMap<String,Object>();
         ArrayList<Map<String,Object>> posts = postService.selectPostByTname(selectsubTopic);
         jsondata.put("post", posts);
@@ -81,13 +81,20 @@ public class PostController {
         jsondata.put("post", posts);
         return jsondata;
     }
+    @RequestMapping(value = "/searchbothtopic", method = RequestMethod.POST)
+    public Object selectPostByParentidAndTname(int id,String selectsubTopic) {
+        Map<String,Object> jsondata = new HashMap<String,Object>();
+        ArrayList<Map<String,Object>> posts = postService.selectPostByParentidAndTname(id,selectsubTopic);
+        jsondata.put("post", posts);
+        return jsondata;
+    }
 
     @RequestMapping(value = "/updateStatus/{id}")
     public Object setPostSolved(@PathVariable("id") int id){
         Map<String,Object> jsondata = new HashMap<String,Object>();
-        Map<String,Object> post = postService.selectPostById(id);
-        postService.setPostSolved(id,true);
-        jsondata.put("post", post);
+        int status = postService.setPostSolved(id,true);
+        if (status == 1) jsondata.put("status", 200);
+        else jsondata.put("status", 500);
         return jsondata;
     }
 }
