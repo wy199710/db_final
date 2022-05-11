@@ -48,7 +48,7 @@ public class PostController {
         Date day=new Date();
         SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
         post.setP_date(sdf.format(day));
-
+        post.setStatus(false);
         int status = postService.create(post);
         if (status == 500) {
             jsondata.put("status", 500);

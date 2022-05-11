@@ -29,8 +29,8 @@ public interface PostMapper {
     @Select("select * from Post natural join Topic natural join User where t_parent_id = #{t_id} and t_name = #{t_name}  order by p_date desc")
     ArrayList<Map<String,Object>> selectPostByParentidAndTname(@Param("t_id")int t_id,@Param("t_name")String t_name);
 
-    @Insert("insert into Post (u_id, t_id, p_title, p_body, p_date, status) values(#{u_id},#{t_id},#{p_title},#{p_body},#{p_date})")
-    int insertPost(@Param("u_id")int u_id, @Param("t_id")int t_id, String p_title, String p_body,String p_date);
+    @Insert("insert into Post (u_id, t_id, p_title, p_body, p_date, status) values(#{u_id},#{t_id},#{p_title},#{p_body},#{p_date}, #{status})")
+    int insertPost(@Param("u_id")int u_id, @Param("t_id")int t_id, String p_title, String p_body,String p_date, boolean status);
 
     @Update("update Post set status = #{status} where p_id = #{p_id}")
     int updateStatus(@Param("p_id")int p_id,boolean status);

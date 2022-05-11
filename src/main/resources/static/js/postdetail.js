@@ -19,8 +19,8 @@ $(document).ready(function() {
             updateAnswer();
         }
     });
-
 })
+
 function updateAnswer() {
     $("#card-parent").html('');
     $.getJSON("http://localhost:5000/answerbypid/" + p_id,function(msg){
@@ -85,7 +85,7 @@ function resolved()
             success:function(tt){
                 if(tt.status==200)
                 {
-                    console.log(12343124);
+                    window.location.href = "http://localhost:5000/postdetail.html?pid=" + getQueryVariable("pid");
                 }
             }
         }

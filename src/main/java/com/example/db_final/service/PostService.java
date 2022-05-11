@@ -35,7 +35,7 @@ public class PostService {
     }
 
     public int create(Post post) {
-        postMapper.insertPost(post.getU_id(), post.getT_id(), post.getP_title(), post.getP_body(), post.getP_date());
+        postMapper.insertPost(post.getU_id(), post.getT_id(), post.getP_title(), post.getP_body(), post.getP_date(), post.isStatus());
         return 200;
     }
     public ArrayList<Map<String,Object>> searchPost(String keyword) {

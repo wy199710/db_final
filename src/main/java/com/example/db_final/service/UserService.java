@@ -38,7 +38,6 @@ public class UserService {
         return userMapper.selectAllAnswerByUsername(uname);
     }
 
-
     public int updateProfile(User user) {
         userMapper.updateProfile(user.getU_id(),user.getEmail(),user.getCity(),user.getState(),user.getCountry(),user.getProfile());
         return 200;

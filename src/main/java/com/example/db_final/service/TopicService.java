@@ -15,7 +15,6 @@ public class TopicService{
         return topicMapper.selectTopicById(id);
     }
 
-
     public ArrayList<Topic> selectAllTopics() {
         return topicMapper.selectAllTopics();
     }

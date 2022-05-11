@@ -1,5 +1,4 @@
-
-   function edit() {
+function edit() {
        var email = $("#email").val();
        var city = $("#city").val();
        var state = $("#state").val();
@@ -30,4 +29,4 @@
                }
            }
        )
-   }
+}
