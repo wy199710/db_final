@@ -14,7 +14,7 @@ public interface PostMapper {
     @Select("select * from Post natural join User natural join Topic order by p_date desc")
     ArrayList<Map<String,Object>> selectAllPost();
 
-    @Select("select * from Post natural join Topic where t_name = #{t_name} order by p_date desc")
+    @Select("select * from Post natural join Topic natural join User where t_name = #{t_name} order by p_date desc")
     ArrayList<Map<String,Object>> selectPostByTname(@Param("t_name")String t_name);
 
     @Select("select * from Post inner join User on User.u_id = Post.u_id and username = #{username} order by p_date desc")
@@ -22,7 +22,6 @@ public interface PostMapper {
 
     @Select("select * from Post natural join Topic where t_parent_id = #{t_id} order by p_date desc")
     ArrayList<Map<String,Object>> selectPostByParentid(@Param("t_id")int t_id);
-
 
     @Select("select * from Post where u_id = #{u_id} and t_id = #{t_id} order by p_date desc")
     ArrayList<Post> selectAllPostByByUidAndTid(@Param("p_id")int u_id, @Param("t_id")int t_id);
